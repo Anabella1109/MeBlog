@@ -1,5 +1,5 @@
-<!-- # P
-#### This is a web application where a user can add,comment on,upvote and downvote a pitch,Current version:25 february 2019
+ # MeBlog
+#### This is a blog,Current version:1st march 2019
 
 ### By **TUYISENGE Anabella**
 ## Description
@@ -43,7 +43,7 @@ python manage.py db upgrade
      $ chmod +x start.sh<br>
      $ ./start.sh
 
-## Technologies used
+<!-- ## Technologies used
 * Python3.6
 * HTML
 * Bootstrap
@@ -79,4 +79,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
- -->
+ --> -->
