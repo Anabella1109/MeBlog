@@ -86,13 +86,13 @@ class Post(db.Model):
         db.session.commit()
 
     @classmethod
-    def clear_comments(cls):
-        Comment.all_comments.clear()
+    def clear_posts(cls):
+        Post.all_posts.clear()
 
     @classmethod
-    def get_comments(cls,id):
-        comments = Comment.query.filter_by(pitch_id=id).all()
-        return comments
+    def get_posts(cls,id):
+        posts = Post.query.all()
+        return posts
 
     # @classmethod
     # def get_commentss(cls,id):
@@ -105,4 +105,7 @@ class Subscription(db.model):
      __tablename__='subscribers'
 
      id=db.Column(db.Integer,primary_key=True)
-
+     name=db.Column(db.String(255))
+     email = db.Column(db.String(255),unique = True , index=True)
+     
+     
