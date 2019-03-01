@@ -100,10 +100,11 @@ class Post(db.Model):
         posts = Post.query.all()
         return posts
 
-    def delete_post(self):
-       comments = Comment.query.filter_by(post_id=id).all()
-       db.session.delete(comments)
-       db.session.commit()
+    def delete_post(self, id):
+       comments = Comment.query.filter_by(id=id).all()
+       for comment in comments:
+         db.session.delete(comment)
+         db.session.commit()
        db.session.delete(self)
        db.session.commit()
 

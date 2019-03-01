@@ -51,12 +51,12 @@ def delete_comment(id):
 
 @main.route('/delete/post/<int:id>', methods = ['GET', 'POST'])
 @login_required
-def delete_comment(id):
+def delete_post(id):
     post=Post.query.filter_by(id=id).first()
  
 
     if post is not None:
-       post.delete_post()
+       post.delete_post(id)
        return redirect(url_for('main.index'))
 
  
@@ -80,7 +80,7 @@ def add_post():
 
         return redirect(url_for('main.index'))
 
-    # all_pitches = Pitch.get_pitches()
+    
 
     title = 'Add Post| MeBlog'    
     return render_template('post.html', title = title, post_form = form)
