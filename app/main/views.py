@@ -42,7 +42,7 @@ def single_post(id):
 
 @main.route('/post/new', methods = ['GET', 'POST'])
 @login_required
-def add_pitch():
+def add_post():
     form = AddPostForm()
     
     if form.validate_on_submit():
@@ -52,6 +52,10 @@ def add_pitch():
 
         new_post = Post(content=post, title = title)
         new_post.save_post()
+
+        subscribers=Subscription.query.all()
+        for subscriber in subscribers:
+           mail_message("New Post","email/send_email",subscriber.email,user=subscriber,post=new_post)
 
         return redirect(url_for('main.index'))
 

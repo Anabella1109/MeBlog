@@ -1,1 +1,6 @@
-Hello{}
+Hello{{user.name}}
+
+There is new Post on new Blog
+Title:{{post.title}}
+
+Please check it out
