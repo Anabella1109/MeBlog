@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for, abort
 from . import main
 from ..request import get_quote
-from .forms import CommentForm,UpdateProfile,AddPostForm,SubscriptionForm
+from .forms import CommentForm,UpdateProfile,AddPostForm,SubscriptionForm,UpdatePostForm
 from .. import db,photos
 from ..models import Quote,Post,User,Comment,Subscription
 from flask_login import login_required, current_user
@@ -143,3 +143,22 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
+@main.route('/edit/post/<int:id>',methods= ['GET','POST'])
+@login_required
+def update_post(id):
+   post=Post.query.filter_by(id=id).first()
+   if post is None:
+        abort(404)
+
+   form=UpdatePostForm()
+   form.title.data=post.title
+   form.content.data=post.content
+   if form.validate_on_submit():
+         post.title=form.title.data
+         post.content=form.content.data
+
+         db.session.add(post)
+         db.session.commit()
+
+         return redirect(url_for('main.index'))
+   return render_template('update_post.html',form=form)
