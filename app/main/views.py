@@ -38,6 +38,17 @@ def single_post(id):
     post=Post.query.filter_by(id=id).first()
     comments=Comment.get_comments(id=id)
     return render_template('single_post.html',post=post,comments=comments)
+
+@main.route('/delete/comment/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def delete_comment(id):
+    comment=Comment.query.filter_by(id=id).first()
+ 
+
+    if comment is not None:
+       comment.delete_comment()
+       return redirect(url_for('main.index'))
+
  
 
 @main.route('/post/new', methods = ['GET', 'POST'])

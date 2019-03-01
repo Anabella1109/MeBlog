@@ -66,6 +66,12 @@ class Comment(db.Model):
         comments = Comment.query.filter_by(post_id=id).all()
         return comments
 
+    
+    def delete_comment(self):
+       db.session.delete(self)
+       db.session.commit()
+
+
     # @classmethod
     # def get_commentss(cls,id):
     #     comments = Comment.query.filter_by(user_id=id).all()
@@ -93,6 +99,13 @@ class Post(db.Model):
     def get_posts(cls):
         posts = Post.query.all()
         return posts
+
+    def delete_post(self):
+       comments = Comment.query.filter_by(post_id=id).all()
+       db.session.delete(comments)
+       db.session.commit()
+       db.session.delete(self)
+       db.session.commit()
 
     # @classmethod
     # def get_commentss(cls,id):

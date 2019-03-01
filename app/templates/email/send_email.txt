@@ -1,6 +1,6 @@
-Hello{{user.name}}
+Hello {{user.name}}
 
-There is new Post on new Blog
+There is new Post on MeBlog
 Title:{{post.title}}
 
 Please check it out
