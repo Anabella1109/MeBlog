@@ -49,6 +49,16 @@ def delete_comment(id):
        comment.delete_comment()
        return redirect(url_for('main.index'))
 
+@main.route('/delete/post/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def delete_comment(id):
+    post=Post.query.filter_by(id=id).first()
+ 
+
+    if post is not None:
+       post.delete_post()
+       return redirect(url_for('main.index'))
+
  
 
 @main.route('/post/new', methods = ['GET', 'POST'])
