@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-{{ fontawesome_html() }}
+<!-- {{ fontawesome_html() }} -->
 <!-- {% import "bootstrap/wtf.html" as wtf %} -->
 
 <!-- Styles block -->
@@ -23,6 +23,8 @@
 {{ macro.displayPosts(posts)}}<br>
 <div class="container">
 <a href="/post/new" class="btn btn-primary">Add Blog post</a>
+{{wtf.quick_form(subscription_form)}}
+
 </div>
 
 {% endblock %}

@@ -1,0 +1,5 @@
+Hello {{user.name}}
+Thank you for subscribing to MeBlog
+I hope you Enjoy my blog post and swing by and leave a comment
+
+Enjoy!!!

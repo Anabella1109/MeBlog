@@ -16,3 +16,9 @@ class CommentForm(FlaskForm):
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
+
+class SubscriptionForm(FlaskForm):
+    name=StringField('Name',validators =[Required()])
+    email=StringField('Email',validators =[Required()])
+    submit = SubmitField('Submit')
+

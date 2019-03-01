@@ -1,26 +1,37 @@
 from flask import render_template,request,redirect,url_for, abort
 from . import main
 from ..request import get_quote
-from .forms import CommentForm,UpdateProfile,AddPostForm
+from .forms import CommentForm,UpdateProfile,AddPostForm,SubscriptionForm
 from .. import db,photos
 from ..models import Quote,Post,User,Comment,Subscription
 from flask_login import login_required, current_user
-# from ..email import mail_message
+from ..email import mail_message
 
 # import markdown2 
 # from flask_fontawesome import FontAwesome
 
-@main.route('/')
+@main.route('/', methods = ['GET', 'POST'])
 def index():
   '''
     View root page function that returns the index page and its data
     '''
+  form=SubscriptionForm()
+  if form.validate_on_submit():
+        name = form.name.data
 
+        email= form.email.data
+        new_subscriber=Subscription(name=name,email=email)
+        db.session.add(new_subscriber)
+        db.session.commit()
+
+        mail_message("Thank you for subscribing","email/welcome_user",new_subscriber.email,user=new_subscriber)
+
+        return redirect(url_for('main.index'))
   quote=get_quote()
   posts=Post.get_posts()
   title="Home| Welcome to MeBlog"
 
-  return render_template('index.html',title=title,quote=quote,posts=posts)
+  return render_template('index.html',title=title,quote=quote,posts=posts,subscription_form=form)
 
 @main.route('/post/<int:id>')
 def single_post(id):
@@ -106,3 +117,4 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
