@@ -76,8 +76,7 @@ class Post(db.Model):
     id= db.Column(db.Integer,primary_key= True)
     title=db.Column(db.String(255))
     content = db.Column(db.String(255))
-    # user_id= db.Column(db.Integer,db.ForeignKey('users.id'))
-    # pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+   
     comments = db.relationship('Comment',backref='post' ,lazy='dynamic')
 
 
@@ -90,7 +89,7 @@ class Post(db.Model):
         Post.all_posts.clear()
 
     @classmethod
-    def get_posts(cls,id):
+    def get_posts(cls):
         posts = Post.query.all()
         return posts
 

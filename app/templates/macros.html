@@ -1,0 +1,17 @@
+{% macro displayPosts(posts) %}
+
+{% for post in posts %}
+ 
+  <div class="container rr">
+   <img src="static/photos/no_dp.png" alt="">
+   <p class="name">Author:Anabella TUYISENGE</p>
+   <h3>{{post.title}}</h3>
+   <a href="/post/{{post.id}}" class='post'>{{post.content}}</a><br>
+
+  
+  <a href="/new/comment/{{post.id}}" class="btn btn-primary">Add comment</a>
+</div>
+ 
+
+  {%endfor%}
+  {%endmacro%}
