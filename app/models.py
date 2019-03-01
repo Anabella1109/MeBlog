@@ -24,7 +24,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String(255))
     pass_secure=db.Column(db.String(255))
 
-    property
+    @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
 
@@ -74,7 +74,7 @@ class Post(db.Model):
     __tablename__= 'posts'
     
     id= db.Column(db.Integer,primary_key= True)
-    title=db.Column(db.Sting(255))
+    title=db.Column(db.String(255))
     content = db.Column(db.String(255))
     # user_id= db.Column(db.Integer,db.ForeignKey('users.id'))
     # pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
@@ -101,7 +101,7 @@ class Post(db.Model):
 
 
 
-class Subscription(db.model):
+class Subscription(db.Model):
      __tablename__='subscribers'
 
      id=db.Column(db.Integer,primary_key=True)
