@@ -5,6 +5,8 @@ from ..request import get_quote
 from .. import db,photos
 from ..models import Quote
 from flask_login import login_required, current_user
+# from ..email import mail_message
+
 # import markdown2 
 # from flask_fontawesome import FontAwesome
 
