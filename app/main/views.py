@@ -21,7 +21,13 @@ def index():
   title="Home| Welcome to MeBlog"
 
   return render_template('index.html',title=title,quote=quote,posts=posts)
-  
+
+@main.route('/post/<int:id>')
+def single_post(id):
+    post=Post.query.filter_by(id=id).first()
+    comments=Comment.get_comments(id=id)
+    return render_template('single_post.html',post=post,comments=comments)
+ 
 
 @main.route('/post/new', methods = ['GET', 'POST'])
 @login_required
@@ -52,9 +58,9 @@ def add_comment(id):
 
   form=CommentForm()
   if form.validate_on_submit():
-     name=form.name.data
+     name=form.username.data
      comment=form.comment.data
-     new_comment=Comment(content=comment ,post=post)
+     new_comment=Comment(content=comment ,post=post,username=name)
      db.session.add(new_comment)  
      db.session.commit() 
      
