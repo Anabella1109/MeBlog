@@ -70,8 +70,9 @@ def add_post():
         title = form.title.data
 
         post= form.content.data
+        image=form.image.data
 
-        new_post = Post(content=post, title = title)
+        new_post = Post(content=post, title = title,image=image)
         new_post.save_post()
 
         subscribers=Subscription.query.all()
@@ -151,8 +152,9 @@ def update_post(id):
         abort(404)
 
    form=UpdatePostForm()
-   form.title.data=post.title
-   form.content.data=post.content
+#    form.title.data=post.title
+#    form.content.data=post.content
+#    post1=Post.query.filter_by(id=id).first()
    if form.validate_on_submit():
          post.title=form.title.data
          post.content=form.content.data

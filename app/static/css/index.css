@@ -1,0 +1,60 @@
+img{
+  height: 80px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+#subscription{
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+  bottom: 0;
+  margin-left: 340px;
+  padding-top: 70px;
+
+}
+
+#sub{
+  width:100%;
+  background-color: black;
+  color: white;
+  height: 400px;
+  font-family: 'Courier New', Courier, monospace;
+
+
+}
+body{
+  background-color: rgb(0, 0, 63);
+  color:white;
+}
+#sub h2,#sub h3{
+  margin-left: 340px;
+  padding-top: 10px;
+
+}
+
+.name{
+  font-size: 10px;
+  font-style: italic;
+}
+
+.rr{
+  border-bottom: 2px solid rgb(25, 67, 180);
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+
+}
+
+.title{
+  font-style: oblique;
+}
+
+.btn-primary{
+background-color: rgb(70, 2, 2);
+border:1px solid rgb(70, 2, 2);
+}
+
+div ul li a{
+  color:darkred;
+}

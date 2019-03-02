@@ -5,6 +5,7 @@ from wtforms.validators import Required
 class AddPostForm(FlaskForm):
     title=StringField('Title',validators = [Required()])
     content=TextAreaField('Content',validators = [Required()])
+    image=StringField('Image url',validators = [Required()])
     submit=SubmitField('SUBMIT')
 
 class CommentForm(FlaskForm):

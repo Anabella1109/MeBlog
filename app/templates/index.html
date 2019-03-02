@@ -23,8 +23,16 @@
 {{ macro.displayPosts(posts)}}<br>
 <div class="container">
 <a href="/post/new" class="btn btn-primary">Add Blog post</a>
-{{wtf.quick_form(subscription_form)}}
 
 </div>
+
+<div id="sub">
+        <h3>If you want to receive notifications when new post is added.</h3>
+        <h2>Subscribe here</h2>
+    <div id='subscription'class='container'>
+    
+    {{wtf.quick_form(subscription_form)}}
+    </div>
+    </div>
 
 {% endblock %}

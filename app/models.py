@@ -82,7 +82,8 @@ class Post(db.Model):
     
     id= db.Column(db.Integer,primary_key= True)
     title=db.Column(db.String(255))
-    content = db.Column(db.String(255))
+    content = db.Column(db.String(500))
+    image=db.Column(db.String(500))
    
     comments = db.relationship('Comment',backref='post' ,lazy='dynamic')
 
