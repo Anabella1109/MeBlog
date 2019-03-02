@@ -6,7 +6,7 @@
 MeBlog is  my personal blog that talks about my interests and day to day experiences.Only me as the admin can add posts but you can enjoy as user a by commentting on posts and subscribing to receive notifications when there are new posts
 ## BDD
 
-<!-- ## User
+## User
 | Behavior            | Input                         | Output                        | 
 | ------------------- | ----------------------------- | ----------------------------- |
 | View blogs | Click on an article on the homepage to view the whole blog post| Displays the entire |
@@ -19,7 +19,7 @@ MeBlog is  my personal blog that talks about my interests and day to day experie
 | Login | Enter login credentials in the login page | Redirects the writer to the homepage |
 | Add Blog | The `create blog` button in the sidebar redirects to the blog form. Fill this form with blog details | Redirects the writer to the new blog post |
 | Delete Blog | Press `delete` button just below the blog title  | The blog is deleted and redirects to the homepage |
-| Delete Comment | Press `delete` buttom below the user's comment to delete the comment | Deletes the comment and refreshes the page | -->
+| Delete Comment | Press `delete` buttom below the user's comment to delete the comment | Deletes the comment and refreshes the page |
 
 ##Setup/Installations
 ### Prerequisites
@@ -57,7 +57,7 @@ python manage.py db upgrade
      $ chmod +x start.sh<br>
      $ ./start.sh
 
-<!-- ## Technologies used
+## Technologies used
 * Python3.6
 * HTML
 * Bootstrap
@@ -93,4 +93,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
- --> -->
+ -->
