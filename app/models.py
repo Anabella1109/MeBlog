@@ -101,6 +101,12 @@ class Post(db.Model):
         posts = Post.query.all()
         return posts
 
+    
+    @classmethod
+    def get_post(cls,id):
+        post = Post.query.filter_by(id=id).all()
+        return post
+
     def delete_post(self, id):
        comments = Comment.query.filter_by(id=id).all()
        for comment in comments:
